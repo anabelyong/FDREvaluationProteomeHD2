@@ -227,6 +227,18 @@ sp|Q9H7Z7|PGES2_HUMAN	sp|Q9H7Z7|PGES2_HUMAN	24				KVPILVAQEGESSQQLNDSSVIISALK	1	
 sp|O00151|PDLI1_HUMAN	sp|O00151|PDLI1_HUMAN	31				VITNQYNNPAGLYSSENISNFNNALESK	1	0.0005350454788657035	12.642909800392198		
 
 ```
+NEW METHODS GENERATED FOR THE PURPOSE OF THIS DISSERTATION: 
+```
+label = "Picked Protein Group FDR"
+
+scoreType = "Perc bestPEP"
+grouping = "no"
+sharedPeptides = "discard"
+pickedStrategy = "picked_group"
+
+
+```
+Format of example  .toml file I have generated for this dissertation. For reference, picked_no_grouping_no_remap represents Picked Group TDS + no grouping strategy <-- this was what I manipulated for evaluating the parameters./
 
 ## Authors
 
