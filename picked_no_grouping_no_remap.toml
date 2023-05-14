@@ -1,0 +1,6 @@
+label = "Picked Protein Group FDR"
+
+scoreType = "Perc bestPEP"
+grouping = "no"
+sharedPeptides = "discard"
+pickedStrategy = "picked_group"
