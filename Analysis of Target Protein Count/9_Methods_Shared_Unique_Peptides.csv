@@ -1,0 +1,10 @@
+﻿Method,Number of Shared Peptides,Unique Peptides
+Classic_grouping_no_remap,673317,940746
+Classic_no_grouping_no_remap,847271,766792
+Classic_rescue_grouping_no_remap,411904,1202159
+Picked_no_grouping_no_remap,847271,766792
+Picked_protein_group_no_remap,411636,1202427
+Picked_subset_no_remap,673317,940746
+Savitski_no_remap,847271,766792
+Savitski_rescued_subset_no_remap,412846,1201217
+Savitski_subset_no_remap,673317,940746
