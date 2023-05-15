@@ -4,22 +4,22 @@ THis repository includes all the code generated in order to analyse the performa
 Code is as explained below.
 
 ## Code and their respective outputs
-These are mostly executed on Juoyter Notebook where the figures and outputs can be visualised immediately after running it.
+These are mostly executed on Jupyter Notebook where the figures and outputs can be visualised immediately after running it. When opening the ipynb.files the figures are presented. THey are saved in this format for data reproducibility and reliability.
 
 ## Getting Started
 
 ### Raw Files and Random Raw Files Generation OPEN TO VISUALISE THE GENERATION OF THESE FILES!
-These include all the code required to subset all the target and decoy files which are produced before downstream processing in pgFDR, ppFDR and cFDR methods. Thee are preliminary sources required. 
+These include all the code required to subset all the target and decoy files which are produced before downstream processing in pgFDR, ppFDR and cFDR methods. Thee are preliminary sources required. These ipynb. files are advised to be opened to present the crediability of code and reliance of results.
 
-*Random_5000_Files_Generator.ipynb: Jupyter notebook containing code for generating random subsets of files.<br>
+*Random_5000_Files_Generator.ipynb: Jupyter notebook containing code for generating random subsets of files. <br>
 *RANDOM1000Files3MethodsAnalysis.ipynb: Jupyter notebook containing code for analyzing proteomics data using three methods on a random subset of 1000 files.<br>
-*RawFilesCheckpoint.ipynb: Jupyter notebook containing code for checking raw files.<br>
+*RawFilesCheckpoint.ipynb: Jupyter notebook containing code for checking raw files. <br>
 *Subset100decoycut.ipynb: Jupyter notebook containing code for generating a subset of files with a decoy cut.<br>
 *Subset750decoycutcode.ipynb: Jupyter notebook containing code for generating a subset of files with a decoy PSAMids produced from Percolator output files<br>
 *Subset750targetcutcode.ipynb: Jupyter notebook containing code for generating a subset of files with a target PSMids produced from Percolator output files<br>
 *SubsetRawFilesforLargerFilesProteomeHD2.ipynb 
 
-## Generation of Pep-to-Prot Mapping Text Template 
+## Generation of Pep-to-Prot Mapping Text Template, otherwise, go to PGR_from_combined_targets_decoys copy.R
 
 ```
 # Protein_inference from percolator files
@@ -76,6 +76,16 @@ fwrite(pep_to_prot, file = glue::glue("~/Desktop/honours/microprot_group_picked_
 *protein_groups_analysis.ipynb: Jupyter notebook containing code for analyzing protein groups.<br>
 *Protein_inference_analysis.ipynb: Jupyter notebook containing code for analyzing protein inference in proteomics data<br>
 An in-depth paragraph about your project and overview of use.
+
+
+**Example of SeparateProteinIDs_Classic_no_grouping_no_remap.csv, How we analysed this to count the number of target proteins**
+https://github.com/anabelyong/FDREvaluationProteomeHD2/blob/main/ExampleSeparateProteinIDs.png
+
+<img src="https://github.com/anabelyong/FDREvaluationProteomeHD2/blob/main/ExampleSeparateProteinIDs.png" width="1000"/>
+
+sp refers to SwissProt proteins, whereas REV_sp refers to their respective decoys. 
+
+
 
 ### Example dataset analysis before running ProteomeHD2, this only has up to 2000 raw files. TROUBLESHOOTING THE METHODS:
 THese can be seen executed in:
