@@ -8,7 +8,7 @@ These are mostly executed on Jupyter Notebook where the figures and outputs can 
 
 ## Getting Started
 
-### Raw Files and Random Raw Files Generation OPEN TO VISUALISE THE GENERATION OF THESE FILES!
+### Raw Files and Random Raw Files Generation(OPEN TO VISUALISE THE GENERATION OF THESE FILES!!!)
 These include all the code required to subset all the target and decoy files which are produced before downstream processing in pgFDR, ppFDR and cFDR methods. Thee are preliminary sources required. These ipynb. files are advised to be opened to present the crediability of code and reliance of results.
 
 *Random_5000_Files_Generator.ipynb: Jupyter notebook containing code for generating random subsets of files. <br>
@@ -84,6 +84,79 @@ https://github.com/anabelyong/FDREvaluationProteomeHD2/blob/main/ExampleSeparate
 <img src="https://github.com/anabelyong/FDREvaluationProteomeHD2/blob/main/ExampleSeparateProteinIDs.png" width="1000"/>
 
 sp refers to SwissProt proteins, whereas REV_sp refers to their respective decoys. 
+
+### Extension of FDR performance by extracting isoform weight and length through bioinformatics pipeline:
+```
+import pandas as pd
+from multiprocessing import Pool
+import pandas as pd
+import requests
+from bs4 import BeautifulSoup
+from time import sleep
+
+def get_fasta_isoform(isoform_id):
+    # define the UniProt API endpoint for the protein isoform
+    url = f"https://www.uniprot.org/uniprot/{isoform_id}.fasta"
+
+    # send a GET request to the UniProt API endpoint to retrieve the protein sequence
+    response = requests.get(url)
+    
+    lines = response.text.split('\n')
+    fasta_isoform = ''.join(lines[1:])
+
+    return fasta_isoform
+
+
+def get_protein_info(uniprot_id):
+    try:
+        print(uniprot_id)
+        # define the UniProt API endpoint for the protein isoform
+        url = f"https://www.uniprot.org/uniprot/{uniprot_id}.fasta"
+
+        # send a GET request to the UniProt API endpoint to retrieve the protein sequence
+        response = requests.get(url)
+        lines = response.text.split('\n')
+        fasta_isoform = ''.join(lines[1:])
+
+        # Define the URL for the ProtParam tool
+        url = "https://web.expasy.org/cgi-bin/protparam/protparam"
+
+        # Define the payload for the GET request
+        payload = {"sequence": fasta_isoform}
+
+        # Submit the GET request and get the response
+        response = requests.get(url, params=payload)
+
+        soup = BeautifulSoup(response.content, "html.parser")
+        num_amino_acids_raw = soup.find(string="Number of amino acids:").next
+        mol_weight_raw = soup.find(string="Molecular weight:").next
+
+        num_amino_acids = int(num_amino_acids_raw)
+        mol_weight = float(mol_weight_raw)
+
+        return {'uniprot_id': uniprot_id, 'num_amino_acids': num_amino_acids, 'mol_weight': mol_weight}
+
+    except Exception as e:
+        print(f"Error processing {uniprot_id}: {e}")
+        return None
+
+if __name__ == '__main__':
+    # Load the UniProt IDs from a CSV file
+    # df = pd.read_csv('ProteinIsoformsHumanSavitskiNoRemap.csv')
+
+    df = pd.DataFrame.from_dict({'Protein Uniprot': ['O94925-3', 'P14618-2', 'P50851-2', 'O94915-2', 'P56181-2']})
+
+    # Use multiprocessing to speed up the retrieval of protein information
+    with Pool(processes=4) as pool:
+        results = pool.map(get_protein_info, df['Protein Uniprot'])
+
+    # Combine the results into a single DataFrame
+    df_results = pd.DataFrame.from_dict(results)
+
+    # Save the results to a CSV file
+    df_results.to_csv('isoform_info.csv', index=False)
+
+```
 
 
 
