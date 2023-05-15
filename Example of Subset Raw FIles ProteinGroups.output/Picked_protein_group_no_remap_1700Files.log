@@ -1,0 +1,41 @@
+2023-04-11 12:46:13,772 - INFO - PickedGroupFDR version 0.3.5
+Copyright (c) 2020-2022 Matthew The. All rights reserved.
+Written by Matthew The (matthew.the@tum.de) at the
+Chair of Proteomics and Bioanalytics at the Technical University of Munich.
+2023-04-11 12:46:13,772 - INFO - Issued command: picked_group_fdr.py --perc_evidence combined_targets+decoys_1700_rawfiles.tsv --protein_groups_out proteinGroups.txt --method picked_protein_group_no_remap --fasta micro_prot_decoy.fasta --peptide_protein_map pep_to_prot_mapping_1700.txt
+2023-04-11 12:46:16,735 - INFO - Protein group level estimation method: Picked Protein Group FDR (best Percolator PEP, rescued subset protein grouping, discard shared peptides, picked group target-decoy strategy)
+2023-04-11 12:46:16,736 - INFO - Parsing Percolator output file
+2023-04-11 12:46:16,738 - INFO -     Reading line 0
+2023-04-11 12:46:27,286 - INFO -     Reading line 500000
+2023-04-11 12:46:34,772 - INFO -     Reading line 1000000
+2023-04-11 12:46:41,722 - INFO -     Reading line 1500000
+2023-04-11 12:46:47,751 - INFO -     Reading line 2000000
+2023-04-11 12:46:54,035 - INFO -     Reading line 2500000
+2023-04-11 12:46:59,475 - INFO -     Reading line 3000000
+2023-04-11 12:47:06,141 - INFO -     Reading line 3500000
+2023-04-11 12:47:11,345 - INFO -     Reading line 4000000
+2023-04-11 12:47:17,682 - INFO -     Reading line 4500000
+2023-04-11 12:47:24,611 - INFO -     Reading line 5000000
+2023-04-11 12:47:30,311 - INFO -     Reading line 5500000
+2023-04-11 12:47:36,587 - INFO -     Reading line 6000000
+2023-04-11 12:47:42,039 - INFO -     Reading line 6500000
+2023-04-11 12:47:48,006 - INFO -     Reading line 7000000
+2023-04-11 12:47:53,936 - INFO - Grouping proteins (subset strategy):
+2023-04-11 12:47:55,749 - INFO - Generating protein groups from observed peptides
+2023-04-11 12:47:57,028 - INFO - Assigning peptides to protein groups
+2023-04-11 12:47:59,257 - INFO - Shared peptides: 49894; Unique peptides: 250135
+2023-04-11 12:48:01,155 - INFO - Calculating protein group-level FDRs
+2023-04-11 12:48:01,296 - INFO - Decoys: 7750, Entrapments: 0, Pool: 18636
+2023-04-11 12:48:01,315 - INFO - #Targets at 1% decoy FDR: 9454
+2023-04-11 12:48:02,301 - INFO - Rescuing threshold: protein score = 2.61, peptide PEP = 0.00246
+2023-04-11 12:48:03,291 - INFO - Redoing protein grouping using peptides below equivalent 1% protein FDR threshold
+2023-04-11 12:48:03,700 - INFO - Generating protein groups from observed peptides
+2023-04-11 12:48:05,627 - INFO - #protein groups before rescue: 42076
+2023-04-11 12:48:05,627 - INFO - #protein groups after rescue: 40422
+2023-04-11 12:48:05,672 - INFO - Assigning peptides to protein groups
+2023-04-11 12:48:07,980 - INFO - Shared peptides: 27508; Unique peptides: 272521
+2023-04-11 12:48:13,465 - INFO - Calculating protein group-level FDRs
+2023-04-11 12:48:13,606 - INFO - Decoys: 8018, Entrapments: 0, Pool: 18517
+2023-04-11 12:48:13,653 - INFO - #Targets at 1% decoy FDR: 9895
+2023-04-11 12:48:16,429 - INFO - Protein group results have been written to: proteinGroups.txt
+2023-04-11 12:48:16,430 - INFO - PickedGroupFDR execution took 122.6 seconds wall clock time

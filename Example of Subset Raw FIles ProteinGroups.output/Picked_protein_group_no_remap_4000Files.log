@@ -1,0 +1,57 @@
+2023-04-12 10:50:37,676 - INFO - PickedGroupFDR version 0.3.5
+Copyright (c) 2020-2022 Matthew The. All rights reserved.
+Written by Matthew The (matthew.the@tum.de) at the
+Chair of Proteomics and Bioanalytics at the Technical University of Munich.
+2023-04-12 10:50:37,676 - INFO - Issued command: picked_group_fdr.py --perc_evidence combined_targets+decoys_4000_rawfiles.tsv --protein_groups_out proteinGroups.txt --method picked_protein_group_no_remap --fasta micro_prot_decoy.fasta --peptide_protein_map pep_to_prot_mapping_4000.txt
+2023-04-12 10:50:38,707 - INFO - Protein group level estimation method: Picked Protein Group FDR (best Percolator PEP, rescued subset protein grouping, discard shared peptides, picked group target-decoy strategy)
+2023-04-12 10:50:38,708 - INFO - Parsing Percolator output file
+2023-04-12 10:50:38,709 - INFO -     Reading line 0
+2023-04-12 10:50:46,077 - INFO -     Reading line 500000
+2023-04-12 10:50:51,269 - INFO -     Reading line 1000000
+2023-04-12 10:50:56,722 - INFO -     Reading line 1500000
+2023-04-12 10:51:02,251 - INFO -     Reading line 2000000
+2023-04-12 10:51:07,378 - INFO -     Reading line 2500000
+2023-04-12 10:51:12,047 - INFO -     Reading line 3000000
+2023-04-12 10:51:16,735 - INFO -     Reading line 3500000
+2023-04-12 10:51:22,018 - INFO -     Reading line 4000000
+2023-04-12 10:51:27,035 - INFO -     Reading line 4500000
+2023-04-12 10:51:32,822 - INFO -     Reading line 5000000
+2023-04-12 10:51:37,925 - INFO -     Reading line 5500000
+2023-04-12 10:51:42,670 - INFO -     Reading line 6000000
+2023-04-12 10:51:47,349 - INFO -     Reading line 6500000
+2023-04-12 10:51:52,223 - INFO -     Reading line 7000000
+2023-04-12 10:51:56,984 - INFO -     Reading line 7500000
+2023-04-12 10:52:02,005 - INFO -     Reading line 8000000
+2023-04-12 10:52:06,574 - INFO -     Reading line 8500000
+2023-04-12 10:52:11,362 - INFO -     Reading line 9000000
+2023-04-12 10:52:15,915 - INFO -     Reading line 9500000
+2023-04-12 10:52:20,212 - INFO -     Reading line 10000000
+2023-04-12 10:52:25,621 - INFO -     Reading line 10500000
+2023-04-12 10:52:30,494 - INFO -     Reading line 11000000
+2023-04-12 10:52:35,064 - INFO -     Reading line 11500000
+2023-04-12 10:52:40,084 - INFO -     Reading line 12000000
+2023-04-12 10:52:44,746 - INFO -     Reading line 12500000
+2023-04-12 10:52:49,576 - INFO -     Reading line 13000000
+2023-04-12 10:52:54,597 - INFO -     Reading line 13500000
+2023-04-12 10:52:59,177 - INFO -     Reading line 14000000
+2023-04-12 10:53:03,841 - INFO -     Reading line 14500000
+2023-04-12 10:53:09,198 - INFO -     Reading line 15000000
+2023-04-12 10:53:11,510 - INFO - Grouping proteins (subset strategy):
+2023-04-12 10:53:12,887 - INFO - Generating protein groups from observed peptides
+2023-04-12 10:53:14,459 - INFO - Assigning peptides to protein groups
+2023-04-12 10:53:17,811 - INFO - Shared peptides: 113567; Unique peptides: 376802
+2023-04-12 10:53:20,249 - INFO - Calculating protein group-level FDRs
+2023-04-12 10:53:20,388 - INFO - Decoys: 10676, Entrapments: 0, Pool: 22238
+2023-04-12 10:53:20,422 - INFO - #Targets at 1% decoy FDR: 9581
+2023-04-12 10:53:21,379 - INFO - Rescuing threshold: protein score = 2.95, peptide PEP = 0.00113
+2023-04-12 10:53:22,634 - INFO - Redoing protein grouping using peptides below equivalent 1% protein FDR threshold
+2023-04-12 10:53:23,013 - INFO - Generating protein groups from observed peptides
+2023-04-12 10:53:24,510 - INFO - #protein groups before rescue: 53568
+2023-04-12 10:53:24,511 - INFO - #protein groups after rescue: 50315
+2023-04-12 10:53:24,539 - INFO - Assigning peptides to protein groups
+2023-04-12 10:53:27,325 - INFO - Shared peptides: 59636; Unique peptides: 430733
+2023-04-12 10:53:31,175 - INFO - Calculating protein group-level FDRs
+2023-04-12 10:53:31,334 - INFO - Decoys: 11268, Entrapments: 0, Pool: 22208
+2023-04-12 10:53:31,361 - INFO - #Targets at 1% decoy FDR: 10542
+2023-04-12 10:53:32,806 - INFO - Protein group results have been written to: proteinGroups.txt
+2023-04-12 10:53:32,806 - INFO - PickedGroupFDR execution took 175.1 seconds wall clock time
