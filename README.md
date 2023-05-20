@@ -1,7 +1,14 @@
 # Evaluation of Different FDR strategies with newly curated ProteomeHD2 dataset
 
 This repository includes all the code generated in order to analyse the performance of different FDR methods in terms of target protein retrieval, isoform retrieval, microprotein retrieval, etc.
-Code is as explained below.
+Code is as explained below. Example datasets are provided but whole dataframe of ProteomeHD2 is not provided as to confidentiality purposes. Can be retrieved at email link below (s1911568@ed.ac.uk) 
+
+```
+REMINDER: When clicking Jupyter Notebook Python scripts individually, select "Preview" instead of RAW code to visualize every output & 
+enhancement of data visualization through each code. For example, here: 
+```
+<img src="https://github.com/anabelyong/FDREvaluationProteomeHD2/blob/main/Viewing Raw Code.png" width="1000"/>
+Image Above illustrates how to view Python and R code in a user-friendly interface on GitHub. 
 
 ## Code and their respective outputs
 These are mostly executed on Jupyter Notebook where the figures and outputs can be visualised immediately after running it. When opening the ipynb.files the figures are presented. THey are saved in this format for data reproducibility and reliability.
@@ -11,13 +18,16 @@ These are mostly executed on Jupyter Notebook where the figures and outputs can 
 ### Raw Files and Random Raw Files Generation(OPEN TO VISUALISE THE GENERATION OF THESE FILES!!!)
 These include all the code required to subset all the target and decoy files which are produced before downstream processing in pgFDR, ppFDR and cFDR methods. Thee are preliminary sources required. These ipynb. files are advised to be opened to present the crediability of code and reliance of results.
 
-*Random_5000_Files_Generator.ipynb: Jupyter notebook containing code for generating random subsets of files. <br>
+*Random_5000_Files_Generator.ipynb: Jupyter notebook containing code for generating 1000, 2000, 3000, 4000 and 5000 random subsets of files. <br>
 *RANDOM1000Files3MethodsAnalysis.ipynb: Jupyter notebook containing code for analyzing proteomics data using three methods on a random subset of 1000 files.<br>
-*RawFilesCheckpoint.ipynb: Jupyter notebook containing code for checking raw files. <br>
+*RawFilesCheckpoint.ipynb: Jupyter notebook containing code for checking benchmarking raw files format to be subsetted. <br>
 *Subset100decoycut.ipynb: Jupyter notebook containing code for generating a subset of files with a decoy cut.<br>
-*Subset750decoycutcode.ipynb: Jupyter notebook containing code for generating a subset of files with a decoy PSAMids produced from Percolator output files<br>
-*Subset750targetcutcode.ipynb: Jupyter notebook containing code for generating a subset of files with a target PSMids produced from Percolator output files<br>
+*Subset750decoycutcode.ipynb: Jupyter notebook containing code for generating a subset of files with a decoy PSMids produced from Percolator output files for graph <br>
+*Subset750targetcutcode.ipynb: Jupyter notebook containing code for generating a subset of files with a target PSMids produced from Percolator output files graph <br>
 *SubsetRawFilesforLargerFilesProteomeHD2.ipynb 
+
+Note that when generating random subsets of raw files for each of these type figures below, generated the same output, error bars were =0. 
+<img src="https://github.com/anabelyong/FDREvaluationProteomeHD2/blob/main/Dissertation%20Figures/Savitski_rescued_subest_no_remap.png" width="500"/>
 
 ## Generation of Pep-to-Prot Mapping Text Template, otherwise, go to PGR_from_combined_targets_decoys copy.R
 
@@ -181,13 +191,13 @@ THese can be seen executed in:
 *Picked_protein_group_no_remap_1000.ipynb
 *Picked_protein_group_no_remap_2000.ipynb
 
-
+## EXAMPLE TERMINAL COMMAND LINE FOR PGFDR TOOL in PYTHON BASED ENVIRONMENT 
+1) CAT command used to combine target and decoy raw files 
+2) SED command modifies lines from the specified File parameter according to an edit script and writes them to standard PGFDR HUMAN output.
+3) Python command to run the PGFDR tool.
 ```
-
-## TERMINAL COMMAND LINE FOR PGFDR TOOL in PYTHON BASED ENVIRONMENT
-
-cat subset_100_target_rawfiles.tsv <(tail -n+2 subset_100_decoy_rawfiles.tsv) > combined_targets+decoys_100.tsv
-sed -i ''-e 's/,/\t/g;s/rev_/REV__/g;s/_;/_HUMAN\t/g' combined_targets+decoys_100.tsv
+cat subset_100_target_rawfiles.tsv <(tail -n+2 subset_100_decoy_rawfiles.tsv) > combined_targets+decoys_100.tsv 
+sed -i ''-e 's/,/\t/g;s/rev_/REV__/g;s/_;/_HUMAN\t/g' combined_targets+decoys_100.tsv 
 python -um picked_group_fdr --perc_evidence combined_targets+decoys_100.tsv --protein_groups_out proteinGroups.txt --method classic_subset_no_remap   --peptide_protein_map pep_to_prot_mapping_100.txt --special-aas '' --enzyme trypsinp | tee proteinGroups.log
 python -um picked_group_fdr --perc_evidence combined_targets+decoys_100.tsv --protein_groups_out proteinGroups.txt --method classic_rescued_subset_no_remap   --peptide_protein_map pep_to_prot_mapping_100.txt --special-aas '' --enzyme trypsinp | tee proteinGroups.log
 
@@ -207,8 +217,8 @@ python -um picked_group_fdr --perc_evidence combined_targets+decoys_400.tsv --pr
 python -um picked_group_fdr --perc_evidence combined_targets+decoys_400.tsv --protein_groups_out proteinGroups.txt --method classic_rescued_subset_no_remap   --peptide_protein_map pep_to_prot_mapping_400.txt --special-aas '' --enzyme trypsinp | tee proteinGroups.log
 
 ```
-ommand to run if program contains helper info (CAN BE SEEN IN RUN_PICKED_GROUP_FDR_ANABEL.SH
-Otherwise can be run on RStudio.
+Command line above shows examples on how to run program on PYTHON BASED TERMINAL ENVIRONMENT (CAN BE SEEN IN RUN_PICKED_GROUP_FDR_ANABEL.SH)
+Otherwise can be run on RStudio. in PGR_from_combined_targets_decoys copy.R script.
 ```
 sec_command <- glue::glue("sed -i''-e 's/,/\\t/g;s/rev_/REV__/g;s/_;/_HUMAN\\t/g' {location_target_decoys}combined_targets+decoys.tsv")
 sec_command = paste0("bash -c ",'"',sec_command,'"')
