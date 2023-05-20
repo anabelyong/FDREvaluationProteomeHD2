@@ -1,6 +1,6 @@
 # Evaluation of Different FDR strategies with newly curated ProteomeHD2 dataset
 
-THis repository includes all the code generated in order to analyse the performance of different FDR methods in terms of target protein retrieval, isoform retrieval, microprotein retrieval, etc.
+This repository includes all the code generated in order to analyse the performance of different FDR methods in terms of target protein retrieval, isoform retrieval, microprotein retrieval, etc.
 Code is as explained below.
 
 ## Code and their respective outputs
