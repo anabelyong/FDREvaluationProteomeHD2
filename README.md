@@ -95,7 +95,7 @@ https://github.com/anabelyong/FDREvaluationProteomeHD2/blob/main/ExampleSeparate
 
 sp refers to SwissProt proteins, whereas REV_sp refers to their respective decoys. Target protein count were based on the number of sp detected. Decoy count is by number of REV__ proteins detected.
 
-### Extension of FDR performance by extracting isoform weight and length through bioinformatics pipeline:
+### Extension of FDR performance by extracting isoform weight and length through this bioinformatics pipeline:
 ```
 import pandas as pd
 from multiprocessing import Pool
